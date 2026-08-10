@@ -1,0 +1,692 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8fafc;
+}
+
+.bg-linear-to-br-vi600-in600 {
+  background: linear-gradient(to bottom right, #7a27fd, #5737f8);
+}
+
+.bg-linear-to-br-bl500-bl600 {
+  background: linear-gradient(to bottom right, #287bff, #1862fd);
+}
+
+.bg-linear-to-br-am400-or500 {
+  background: linear-gradient(to bottom right, #ffb200, #ff7400);
+}
+
+.bg-linear-to-br-ro500-re600 {
+  background: linear-gradient(to bottom right, #fd1c50, #ea001a);
+}
+
+.bg-linear-to-r-vi600-in600 {
+  background: linear-gradient(to right, #7a27fd, #5737f8);
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  backdrop-filter: blur(24px) !important;
+
+}
+
+nav {
+  height: 65px;
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    padding: 12px;
+  }
+
+  .title-nav {
+    font-size: 20px;
+
+    .title {
+      font-size: inherit;
+      margin: 0;
+    }
+
+    .title-purple {
+      color: #7f22fe;
+      font-size: 20px;
+    }
+
+    .title-info {
+      font-size: 12px;
+    }
+  }
+
+  .rside {
+    .my-nav-button {
+      min-width: 78px;
+      max-width: 143px;
+      height: 40px;
+      font-size: 14px;
+      transition: all 0.4s;
+    }
+
+    .my-nav-button:hover {
+      transform: translateY(-5px);
+    }
+
+    .profile {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
+
+#summaries {
+  margin-top: 65px;
+
+  .summary {
+    transition: all 0.4s;
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      padding: 12px;
+    }
+
+    .info {
+      .title {
+        font-size: 11px;
+      }
+
+      #totalContacts {
+        font-size: 20px;
+      }
+
+      #totalFavouritesContacts {
+        font-size: 20px;
+      }
+
+      #totalEmergencyContacts {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .summary:hover {
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.175) !important;
+  }
+}
+
+
+#contacts {
+  .contacts {
+    .header {
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .searchbar {
+      i {
+        color: #99a1af;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+      }
+
+      #searchbar {
+        padding-left: 44px;
+        color: #364153;
+        font-weight: 400;
+        font-size: 14px;
+        height: 50px;
+        transition: all 0.4s;
+      }
+
+      #searchbar::placeholder {
+        color: #99a1af;
+      }
+
+      #searchbar:focus {
+        border: 1px solid #8e51ff !important;
+        box-shadow: 0 0 0 4px rgba(142, 81, 255, 0.3) !important;
+      }
+    }
+
+    .my-contact-card {
+      border: 0 !important;
+      transition: all 0.4s;
+
+      .card-content {
+        .header {
+          #contactImagePlaceholder {
+            width: 56px;
+            height: 56px;
+
+            .favouritedContact {
+              width: 20px;
+              height: 20px;
+              font-size: 8px;
+              border: 2px solid white;
+              top: 0;
+              right: 0;
+              transform: translate(25%, -25%);
+            }
+
+            .emergencyContact {
+              width: 20px;
+              height: 20px;
+              font-size: 8px;
+              border: 2px solid white;
+              bottom: 0;
+              right: 0;
+              transform: translate(25%, 25%);
+            }
+          }
+
+          .contact-info {
+            #contactName {
+              font-size: 16px;
+            }
+
+            .number {
+              .phone-icon {
+                width: 24px;
+                height: 24px;
+                background-color: #dbeafe;
+                color: #155dfc;
+                font-size: 10px;
+              }
+
+              #contactNumber {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        #mailDiv {
+          .icon {
+            background-color: #ede9fe;
+            color: #7f22fe;
+            font-size: 10px;
+            width: 28px;
+            height: 28px;
+          }
+
+          #contactEmail {
+            font-size: 14px;
+          }
+        }
+
+        #addressDiv {
+          .icon {
+            background-color: #d0fae5;
+            color: #009966;
+            font-size: 10px;
+            width: 28px;
+            height: 28px;
+          }
+
+          #contactEmail {
+            font-size: 14px;
+          }
+        }
+
+        .contact-tags {
+          #groupTag {
+            font-size: 11px;
+          }
+
+          .work-tag {
+            background-color: #f3e8ff;
+            color: #8200db;
+          }
+
+          #emergencyTag {
+            font-size: 11px;
+            background-color: #fff1f2;
+            color: #ec003f;
+          }
+        }
+      }
+
+      .my-card-footer {
+        background-color: #fafbfc;
+        border-top: 1px solid rgba(122, 122, 122, 0.2);
+
+        .actions {
+          #callContact {
+            background-color: #ecfdf5;
+            color: #009966;
+            width: 36px;
+            height: 36px;
+            font-size: 16px;
+            transition: all 0.2s;
+          }
+
+          #callContact:hover {
+            background-color: #d0fae5;
+          }
+
+          #mailContact {
+            background-color: #f5f3ff;
+            color: #7f22fe;
+            width: 36px;
+            height: 36px;
+            font-size: 16px;
+            transition: all 0.2s;
+          }
+
+          #mailContact:hover {
+            background-color: #ede9fe;
+          }
+        }
+
+        .edits {
+          button {
+            border: 0;
+            background-color: transparent;
+            color: #6a7282;
+            font-size: 16px;
+            width: 36px;
+            height: 36px;
+            transition: all 0.2s;
+          }
+
+          #favouriteButton.isfavourite {
+            background-color: #fffbeb;
+            color: #ffb900;
+          }
+
+          #emergencyButton.isemergency {
+            background-color: #fff1f2;
+            color: #ff2056;
+          }
+
+          #favouriteButton.notfavourite:hover {
+            background-color: #f3f4f6;
+            color: #ffb900;
+          }
+
+          #favouriteButton.isfavourite:hover {
+            background-color: #fef3c6;
+            color: #ffb900;
+          }
+
+          #emergencyButton.notemergency:hover {
+            background-color: #f3f4f6;
+            color: #ff2056;
+          }
+
+          #emergencyButton.isemergency:hover {
+            background-color: #ffe4e6;
+            color: #ff2056;
+          }
+
+          #editButton:hover {
+            background-color: #eef2ff;
+            color: #4f39f6;
+          }
+
+          #deleteButton:hover {
+            background-color: #fff1f2;
+            color: #ec003f;
+          }
+        }
+      }
+    }
+
+    .my-contact-card:hover {
+      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.175) !important;
+    }
+
+    #noContacts {
+      .icon {
+        width: 80px;
+        height: 80px;
+        background-color: #f3f4f6;
+        font-size: 28px;
+        color: #d1d5dc;
+      }
+
+      .no-contact {
+        font-size: 16px;
+        color: #6a7282;
+      }
+
+      .press-add {
+        font-size: 14px;
+        color: #99a1af;
+      }
+    }
+  }
+
+
+  .lists {
+    .favourite-card {
+      background-color: #ffffff;
+
+      .header {
+        background-color: #fff9ec;
+
+        .icon {
+          width: 32px;
+          height: 32px;
+          background: linear-gradient(to bottom right, #ffb200, #ff7400);
+          font-size: 10px;
+        }
+
+        h2 {
+          font-size: 14px;
+        }
+
+        span {
+          font-size: 10px;
+        }
+      }
+
+      #noFavourites {
+        font-size: 14px;
+        color: #99a1af;
+      }
+
+      #favouriteList {
+        .contact {
+          border: 1px solid #f3f4f6;
+          background-color: transparent;
+          transition: all 0.2s;
+          cursor: pointer;
+
+          #contactImagePlaceholder {
+            width: 40px;
+            height: 40px;
+          }
+
+          .contact-info {
+            #contactName {
+              font-size: 11px;
+            }
+
+            #contactNumber {
+              font-size: 10px;
+            }
+          }
+
+          .icon {
+            width: 24px;
+            height: 24px;
+            background-color: #d0fae5;
+            color: #009966;
+            font-size: 12px;
+          }
+        }
+
+        .contact:hover {
+          background-color: #fffbeb;
+          border-color: #fee685;
+        }
+      }
+    }
+
+
+
+    .emergency-card {
+      background-color: #ffffff;
+
+      #noEmergency {
+        font-size: 14px;
+        color: #99a1af;
+      }
+
+      .header {
+        background-color: #fff2f2;
+
+        .icon {
+          width: 32px;
+          height: 32px;
+          background: linear-gradient(to bottom right, #fc1a4e, #ea001c);
+          font-size: 10px;
+        }
+
+        h2 {
+          font-size: 14px;
+        }
+
+        span {
+          font-size: 10px;
+        }
+      }
+
+      #emergencyList {
+        .contact {
+          border: 1px solid #f3f4f6;
+          background-color: transparent;
+          transition: all 0.2s;
+          cursor: pointer;
+
+          #contactImagePlaceholder {
+            width: 40px;
+            height: 40px;
+          }
+
+          .contact-info {
+            #contactName {
+              font-size: 11px;
+            }
+
+            #contactNumber {
+              font-size: 10px;
+            }
+          }
+
+          .icon {
+            width: 24px;
+            height: 24px;
+            background-color: #ffe4e6;
+            color: #ec003f;
+            font-size: 12px;
+          }
+        }
+
+        .contact:hover {
+          background-color: #fff1f2;
+          border-color: #ffccd3;
+        }
+      }
+    }
+  }
+}
+
+
+
+/*sm*/
+@media screen and (min-width: 576px) {}
+
+/*md*/
+@media screen and (min-width: 768px) {
+  nav {
+    height: 80px;
+  }
+
+  #summaries {
+    margin-top: 80px;
+
+    .summary {
+      .icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .info {
+        .title {
+          font-size: 12px;
+        }
+
+        #totalContacts {
+          font-size: 24px;
+        }
+
+        #totalFavouritesContacts {
+          font-size: 24px;
+        }
+
+        #totalEmergencyContacts {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  #contacts {
+    .contacts {
+      .header {
+        h2 {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+}
+
+/*lg*/
+@media screen and (min-width: 992px) {
+
+  nav {
+    .logo {
+      width: 44px;
+      height: 44px;
+    }
+
+    .title-nav {
+      font-size: 24px;
+
+      .title-purple {
+        font-size: 24px;
+      }
+    }
+  }
+
+  #contacts {
+    .contacts {
+      #noContacts {
+        .icon {
+          width: 80px;
+          height: 80px;
+          font-size: 28px;
+        }
+
+        .no-contact {
+          font-size: 16px;
+        }
+
+        .press-add {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+/*xl*/
+@media screen and (min-width: 1200px) {
+
+  nav {
+    .rside {
+      .profile {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+
+
+  #contacts {
+    .lists {
+      .favourite-card {
+
+        .header {
+
+          .icon {
+            width: 36px;
+            height: 36px;
+          }
+
+          h2 {
+            font-size: 16px;
+          }
+
+          span {
+            font-size: 11px;
+          }
+        }
+
+        #favouriteList {
+          .contact {
+
+
+            .contact-info {
+              #contactName {
+                font-size: 14px;
+              }
+
+              #contactNumber {
+                font-size: 12px;
+              }
+            }
+
+            .icon {
+              width: 32px;
+              height: 32px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+
+
+      .emergency-card {
+
+        .header {
+
+          .icon {
+            width: 36px;
+            height: 36px;
+          }
+
+          h2 {
+            font-size: 16px;
+          }
+
+          span {
+            font-size: 11px;
+          }
+        }
+
+        #emergencyList {
+          .contact {
+
+            .contact-info {
+              #contactName {
+                font-size: 14px;
+              }
+
+              #contactNumber {
+                font-size: 12px;
+              }
+            }
+
+            .icon {
+              width: 32px;
+              height: 32px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

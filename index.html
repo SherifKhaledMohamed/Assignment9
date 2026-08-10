@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+
+  <title>ContactHub- Smart Contact Manager</title>
+  <link rel="shortcut icon" href="images/main.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="w-100 position-fixed top-0 start-0">
+    <nav class="navbar py-sm-2 py-md-3">
+      <div class="container">
+        <a class="navbar-brand d-flex justify-content-start align-items-center gap-2" href="#">
+          <span class="logo rounded-3 bg-linear-to-br-vi600-in600 d-flex justify-content-center align-items-center"><i
+              class="fa-solid fa-address-book text-light"></i></span>
+          <div class="title-nav d-flex flex-column justify-content-center align-items-start">
+            <h1 class="title text-black fw-bold">Contact<span class="title-purple">Hub</span></h1>
+            <span class="title-info text-muted d-none d-md-inline">Smart Contact Manager</span>
+          </div>
+        </a>
+        <div class="rside ms-auto d-flex justify-content-between align-items-center gap-1 gap-md-3">
+          <button type="button"
+            class="btn btn-primary my-nav-button bg-linear-to-r-vi600-in600 text-light px-3 py-2 rounded-4 overflow-hidden fw-semibold">
+            + <span class="d-md-none">Add</span>
+            <span class="d-none d-md-inline">Add Contact</span>
+          </button>
+          <a href="" class="notification text-decoration-none"><i
+              class="fa-solid fa-bell text-muted d-none d-md-block"></i></a>
+          <a href="" class="settings text-decoration-none"><i
+              class="fa-solid fa-gear text-muted d-none d-md-block"></i></a>
+          <div class="profile rounded-3 overflow-hidden">
+            <img class="d-block w-100 h-100 object-fit-cover" src="images/profile.jpg" alt="Your Profile Picture">
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="summaries" class="py-4">
+      <div class="container">
+        <div class="row g-3">
+          <div class="col-6 col-md-4">
+            <div
+              class="summary shadow-sm border-1 border-dark-subtle p-3 gap-3 rounded-4 d-flex justify-content-start align-items-center bg-white">
+              <span
+                class="icon d-flex justify-content-center align-items-center shadow-sm rounded-3 total bg-linear-to-br-bl500-bl600"><i
+                  class="fa-solid fa-users text-light"></i></span>
+              <div class="info d-flex flex-column align-items-start justify-content-center">
+                <span class="title text-muted fw-normal">TOTAL</span>
+                <span id="totalContacts" class="text-black fw-bold">3</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div
+              class="summary shadow-sm border-1 border-dark-subtle p-3 gap-3 rounded-4 d-flex justify-content-start align-items-center bg-white">
+              <span
+                class="icon d-flex justify-content-center align-items-center shadow-sm rounded-3 total bg-linear-to-br-am400-or500"><i
+                  class="fa-solid fa-star text-light"></i></span>
+              <div class="info d-flex flex-column align-items-start justify-content-center">
+                <span class="title text-muted fw-normal">FAVOURITES</span>
+                <span id="totalFavouritesContacts" class="text-black fw-bold">4</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div
+              class="summary shadow-sm border-1 border-dark-subtle p-3 gap-3 rounded-4 d-flex justify-content-start align-items-center bg-white">
+              <span
+                class="icon d-flex justify-content-center align-items-center shadow-sm rounded-3 total bg-linear-to-br-ro500-re600"><i
+                  class="fa-solid fa-heart-pulse text-light"></i></span>
+              <div class="info d-flex flex-column align-items-start justify-content-center">
+                <span class="title text-muted fw-normal">EMERGENCY</span>
+                <span id="totalEmergencyContacts" class="text-black fw-bold">3</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section id="contacts">
+      <div class="container">
+        <div class="row">
+          <div class="contacts col-xl-8">
+            <div class="container-fluid">
+              <div class="row g-4 mb-4">
+                <div class="col">
+                  <div class="header">
+                    <h2 class="fw-bold">All Contacts</h2>
+                    <p class="text-muted fw-normal">Manage and organize your <span id="totalContactsHeader">6</span>
+                      contacts</p>
+                  </div>
+                  <div class="searchbar position-relative w-100">
+                    <i class="fa-solid fa-magnifying-glass position-absolute"></i>
+                    <input id="searchbar" class="form-control form-control-lg" type="text"
+                      placeholder="Search by name, phone, or email..." aria-label=".form-control-lg example">
+                  </div>
+                </div>
+              </div>
+              <div id="noContacts"
+                class="text-center d-flex flex-column justify-content-center align-items-center mt-5">
+                <span class="icon mb-3 rounded-4 d-flex justify-content-center align-items-center">
+                  <i class="fa-solid fa-address-book"></i>
+                </span>
+                <span class="fw-medium no-contact">No contacts found</span>
+                <span class="fw-normal press-add">Click "Add Contact" to get started</span>
+              </div>
+              <div id="contactList" class="row g-4 mb-4 mb-xl-0">
+                <div class="col-md-6">
+                  <div class="contact">
+                    <div class="card my-contact-card bg-white shadow-sm rounded-4">
+                      <div class="card-content p-4">
+                        <div class="header d-flex justify-content-start align-items-center gap-3 pb-3">
+                          <div id="contactImagePlaceholder"
+                            class="rounded-3 position-relative d-flex justify-content-center align-items-center">
+                            <img id="contactImage" src="images/avatar-1.png"
+                              class="w-100 h-100 object-fit-cover d-block rounded-3" alt="">
+                            <span id="contactImageLetter" class="d-none fw-semibold"></span>
+                            <span
+                              class="favouritedContact d-flex justify-content-center align-items-center rounded-circle bg-warning position-absolute border-white"><i
+                                class="fa-solid fa-star text-white"></i></span>
+                            <span
+                              class="emergencyContact d-flex justify-content-center align-items-center rounded-circle bg-danger position-absolute border-white"><i
+                                class="fa-solid fa-heart-pulse text-white"></i></span>
+                          </div>
+                          <div class="contact-info">
+                            <h3 id="contactName" class="fw-semibold text-black">Sherif</h3>
+                            <div class="number d-flex justify-content-start align-self-center gap-2">
+                              <span class="phone-icon rounded-2 d-flex justify-content-center align-items-center"><i
+                                  class="fa-solid fa-phone"></i></span>
+                              <span id="contactNumber" class="text-muted fw-normal">01234567891</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="mailDiv" class="d-flex justify-content-start align-items-center gap-3 pb-3">
+                          <span class="icon rounded-2 d-flex justify-content-center align-items-center"><i
+                              class="fa-solid fa-envelope"></i></span>
+                          <span id="contactEmail" class="fw-normal text-muted">sherif@s.co</span>
+                        </div>
+                        <div id="addressDiv" class="d-flex justify-content-start align-items-center gap-3 pb-3">
+                          <span class="icon rounded-2 d-flex justify-content-center align-items-center"><i
+                              class="fa-solid fa-envelope"></i></span>
+                          <span id="contactAddress" class="fw-normal text-muted">sadjasj 123905,z</span>
+                        </div>
+                        <div class="contact-tags d-flex justify-content-start align-items-center gap-2">
+                          <span id="groupTag" class="px-2 py-1 work-tag rounded-3">Work</span>
+                          <span id="emergencyTag" class="px-2 py-1 rounded-3"><i class="fa-solid fa-heart-pulse"></i>
+                            Emergency</span>
+                        </div>
+                      </div>
+                      <div class="card-footer my-card-footer px-4">
+                        <div class="w-100 d-flex justify-content-between align-content-center">
+                          <div class="actions d-flex justify-content-start align-content-center gap-2 me-auto">
+                            <a href="tel:" id="callContact"
+                              class="d-flex justify-content-center align-items-center text-decoration-none rounded-3"><i
+                                class="fa-solid fa-phone"></i></a>
+                            <a href="mailto:" id="mailContact"
+                              class="d-flex justify-content-center align-items-center text-decoration-none rounded-3"><i
+                                class="fa-solid fa-envelope"></i></a>
+                          </div>
+                          <div class="edits d-flex justify-content-start align-items-center gap-1 ms-auto">
+                            <button id="favouriteButton"
+                              class="d-flex justify-content-center align-items-center notfavourite rounded-3"><i
+                                class="fa-regular fa-star"></i></button>
+                            <button id="emergencyButton"
+                              class="d-flex justify-content-center align-items-center notemergency rounded-3"><i
+                                class="fa-regular fa-heart"></i></button>
+                            <button id="editButton"
+                              class="d-flex justify-content-center align-items-center rounded-3"><i
+                                class="fa-solid fa-pen"></i></button>
+                            <button id="deleteButton"
+                              class="d-flex justify-content-center align-items-center rounded-3"><i
+                                class="fa-solid fa-trash"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lists col-xl-4">
+            <div class="container-fluid">
+              <div class="row gap-4">
+                <div class="col-12">
+                  <div class="content w-100 mt-4 mt-lg-0">
+                    <div class="favourite-card shadow-sm rounded-4 d-flex flex-column w-100">
+                      <div class="header p-3 d-flex justify-content-start align-items-center gap-3">
+                        <span class="icon d-flex justify-content-center align-items-center rounded-3">
+                          <i class="fa-solid fa-star text-white"></i>
+                        </span>
+                        <div class="list-title d-flex flex-column justify-content-center align-items-start">
+                          <h2 class="fw-semibold text-black mb-0">Favorites</h2>
+                          <span class="fw-normal text-muted">Quick access</span>
+                        </div>
+                      </div>
+                      <div class="py-2">
+                        <div class="container-fluid">
+                          <div id="noFavourites" class="fw-normal text-center">No favourites yet</div>
+                          <div class="row g-2" id="favouriteList">
+                            <div class="col-12 col-md-6 col-xl-12">
+                              <a href="tel:"
+                                class="contact rounded-3 p-3 w-100 text-decoration-none d-block d-flex justify-content-between align-items-center">
+                                <div class="lside d-flex justify-content-start align-items-center gap-2">
+                                  <div id="contactImagePlaceholder"
+                                    class="rounded-3 position-relative d-flex justify-content-center align-items-center">
+                                    <img id="contactImage" src="images/avatar-1.png"
+                                      class="w-100 h-100 object-fit-cover d-block rounded-3" alt="">
+                                    <span id="contactImageLetter" class="d-none fw-semibold">SK</span>
+                                  </div>
+                                  <div
+                                    class="contact-info d-flex flex-column align-items-start justify-content-center g-2">
+                                    <h4 id="contactName" class="fw-medium text-black m-0">Sherif</h4>
+                                    <span id="contactNumber" class="text-muted fw-normal">01234567891</span>
+                                  </div>
+                                </div>
+                                <span class="icon d-flex justify-content-center align-items-center rounded-3"><i
+                                    class="fa-solid fa-phone"></i></span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="content w-100 mt-4 mt-lg-0">
+                    <div class="emergency-card shadow-sm rounded-4 d-flex flex-column w-100">
+                      <div class="header p-3 d-flex justify-content-start align-items-center gap-3">
+                        <span class="icon d-flex justify-content-center align-items-center rounded-3">
+                          <i class="fa-solid fa-heart-pulse text-white"></i>
+                        </span>
+                        <div class="list-title d-flex flex-column justify-content-center align-items-start">
+                          <h2 class="fw-semibold text-black mb-0">Emergency</h2>
+                          <span class="fw-normal text-muted">Urgent contacts</span>
+                        </div>
+                      </div>
+                      <div class="py-2">
+                        <div class="container-fluid">
+                          <div id="noEmergency" class="fw-normal text-center">No emergency contacts</div>
+                          <div class="row g-2" id="emergencyList">
+                            <div class="col-12 col-md-6 col-xl-12">
+                              <a href="tel:"
+                                class="contact rounded-3 p-3 w-100 text-decoration-none d-block d-flex justify-content-between align-items-center">
+                                <div class="lside d-flex justify-content-start align-items-center gap-2">
+                                  <div id="contactImagePlaceholder"
+                                    class="rounded-3 position-relative d-flex justify-content-center align-items-center">
+                                    <img id="contactImage" src="images/avatar-1.png"
+                                      class="w-100 h-100 object-fit-cover d-block rounded-3" alt="">
+                                    <span id="contactImageLetter" class="d-none fw-semibold">SK</span>
+                                  </div>
+                                  <div
+                                    class="contact-info d-flex flex-column align-items-start justify-content-center g-2">
+                                    <h4 id="contactName" class="fw-medium text-black m-0">Sherif</h4>
+                                    <span id="contactNumber" class="text-muted fw-normal">01234567891</span>
+                                  </div>
+                                </div>
+                                <span class="icon d-flex justify-content-center align-items-center rounded-3"><i
+                                    class="fa-solid fa-phone"></i></span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
