@@ -88,7 +88,7 @@ function addOrUpdate(index) {
       email: emailInput.value,
       contactAddress: addressInput.value,
       contactGroup: groupInput.value,
-      contactNotes: notesInput.innerHTML,
+      contactNotes: notesInput.value,
       isFavouriteContact: isFavouriteInput.checked,
       isEmergencyContact: isEmergencyInput.checked,
       contactImage: contactImageInput.files[0]
@@ -152,6 +152,7 @@ function setAddOrUpdate(index) {
   var saveButtonDiv = document.getElementById("saveButtonDiv");
 
   if (index === -1) {
+    clearInputs();
     saveButtonDiv.innerHTML = `<button
                     id="saveButton"
                     class="w-100 fw-semibold text-light rounded-3" onclick="addOrUpdate(-1)"
@@ -178,7 +179,7 @@ function fillInputsForEdit(index){
   emailInput.value = contactList[index].email;
   addressInput.value = contactList[index].contactAddress;
   groupInput.value = contactList[index].contactGroup;
-  notesInput.innerHTML = contactList[index].contactNotes;
+  notesInput.value = contactList[index].contactNotes;
   isFavouriteInput.checked = contactList[index].isFavouriteContact;
   isEmergencyInput.checked = contactList[index].isEmergencyContact;
   contactImagePreviewFallbackInput.innerHTML = `${contactList[index].name.slice(0,2).toUpperCase()}`;
@@ -200,33 +201,6 @@ function DisplayContacts() {
   DisplayTotalList(text);
   DisplayFavouriteList(text);
   DisplayEmergencyList(text);
-}
-
-function updateImage(element) {
-  if (element.files[0]) {
-    const imagePath = `images/${element.files[0].name}`;
-    
-    const testImg = new Image();
-    
-    testImg.onload = function () {
-      contactImagePreview.setAttribute("src", imagePath);
-      contactImagePreview.classList.remove("d-none");
-      contactImagePreviewFallbackInput.classList.add("d-none");
-    };
-    
-    testImg.onerror = function () {
-      contactImagePreview.setAttribute("src", "");
-      contactImagePreview.classList.add("d-none");
-      contactImagePreviewFallbackInput.classList.remove("d-none");
-    };
-
-    testImg.src = imagePath;
-  } 
-  else {
-    contactImagePreview.setAttribute("src", "");
-    contactImagePreview.classList.add("d-none");
-    contactImagePreviewFallbackInput.classList.remove("d-none");
-  }
 }
 
 
@@ -401,33 +375,6 @@ function DisplayTotalList(text) {
   }
   contactListHTML.innerHTML = htmlPlaceholder;
 }
-
-function deleteContact(index) {
-  Swal.fire({
-  title: "Delete Contact?",
-  text: `Are you sure you want to delete ${contactList[index].name}? This action cannot be undone.`,
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#dc2626",
-  cancelButtonColor: "#6b7280",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed){
-    contactList.splice(index,1);
-  localStorage.setItem("contactContainer",JSON.stringify(contactList));
-  DisplayContacts();
-  Swal.fire({
-    title: "Deleted!",
-    text: "Contact has been deleted.",
-    icon: "success",
-    showConfirmButton: false,
-        timer: 800
-  });
-} 
-});
-  
-}
-
 function DisplayFavouriteList(text) {
   var favouriteCounter = 0;
 var htmlPlaceholder = "";
@@ -458,7 +405,7 @@ var htmlPlaceholder = "";
                                           class="contactImage w-100 h-100 object-fit-cover d-block rounded-3"
                                           alt="${contactList[i].name} image"
                                         />`:`<span
-                                          class="contactImageLetter d-none fw-semibold"
+                                          class="contactImageLetter fw-semibold text-light"
                                           >${contactList[i].name.slice(0, 2).toUpperCase()}</span>`}
                                         
                                         
@@ -526,7 +473,7 @@ function DisplayEmergencyList(text) {
                                           class="contactImage w-100 h-100 object-fit-cover d-block rounded-3"
                                           alt="${contactList[i].name} image"
                                         />`:`<span
-                                          class="contactImageLetter d-none fw-semibold"
+                                          class="contactImageLetter fw-semibold text-light"
                                           >${contactList[i].name.slice(0, 2).toUpperCase()}</span>`}
                                       </div>
                                       <div
@@ -562,6 +509,59 @@ function DisplayEmergencyList(text) {
     noEmergencyDiv.classList.remove("d-none");
   }
 }
+function updateImage(element) {
+  if (element.files[0]) {
+    const imagePath = `images/${element.files[0].name}`;
+    
+    const testImg = new Image();
+    
+    testImg.onload = function () {
+      contactImagePreview.setAttribute("src", imagePath);
+      contactImagePreview.classList.remove("d-none");
+      contactImagePreviewFallbackInput.classList.add("d-none");
+    };
+    
+    testImg.onerror = function () {
+      contactImagePreview.setAttribute("src", "");
+      contactImagePreview.classList.add("d-none");
+      contactImagePreviewFallbackInput.classList.remove("d-none");
+    };
+
+    testImg.src = imagePath;
+  } 
+  else {
+    contactImagePreview.setAttribute("src", "");
+    contactImagePreview.classList.add("d-none");
+    contactImagePreviewFallbackInput.classList.remove("d-none");
+  }
+}
+
+function deleteContact(index) {
+  Swal.fire({
+  title: "Delete Contact?",
+  text: `Are you sure you want to delete ${contactList[index].name}? This action cannot be undone.`,
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#dc2626",
+  cancelButtonColor: "#6b7280",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed){
+    contactList.splice(index,1);
+  localStorage.setItem("contactContainer",JSON.stringify(contactList));
+  DisplayContacts();
+  Swal.fire({
+    title: "Deleted!",
+    text: "Contact has been deleted.",
+    icon: "success",
+    showConfirmButton: false,
+        timer: 800
+  });
+} 
+});
+  
+}
+
 function toggleFavourite(index,element) {
 
 contactList[index].isFavouriteContact = !contactList[index].isFavouriteContact;
@@ -600,12 +600,13 @@ function clearInputs() {
   emailInput.value = "";
   addressInput.value = "";
   groupInput.selectedIndex = 0;
-  notesInput.innerHTML = "";
+  notesInput.value = "";
   isFavouriteInput.checked = false;
   isEmergencyInput.checked = false;
   contactImagePreview.setAttribute("src", "");
   contactImagePreview.classList.add("d-none");
   contactImagePreviewFallbackInput.classList.remove("d-none");
+  contactImagePreviewFallbackInput.innerHTML = `<i class="contactImagePreviewFallback fa-solid fa-user text-light fs-3"></i>`;
 
   fullNameInput.classList.remove("is-valid");
   phoneInput.classList.remove("is-valid");
