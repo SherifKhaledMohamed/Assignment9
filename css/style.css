@@ -288,6 +288,7 @@ nav {
     .my-contact-card {
       border: 0 !important;
       transition: all 0.4s;
+      height: 300px;
 
       .card-content {
         .header {
@@ -367,6 +368,9 @@ nav {
           .contactEmail {
             font-size: 14px;
           }
+          .contactAddress {
+            font-size: 14px;
+          }
         }
 
         .contact-tags {
@@ -377,6 +381,22 @@ nav {
           .work-tag {
             background-color: #f3e8ff;
             color: #8200db;
+          }
+          .family-tag {
+            background-color: #dbeafe;
+            color: #1447e6;
+          }
+          .friends-tag {
+            background-color: #dbfce7;
+            color: #008236;
+          }
+          .school-tag {
+            background-color: #fef3c6;
+            color: #b55200;
+          }
+          .other-tag {
+            background-color: #f3f4f6;
+            color: #364153;
           }
 
           .emergencyTag {
@@ -524,12 +544,13 @@ nav {
       #noFavourites {
         font-size: 14px;
         color: #99a1af;
+        margin: 20px 0;
       }
 
       #favouriteList {
         .contact {
           border: 1px solid #f3f4f6;
-          background-color: transparent;
+          background-color: #f9fafb;
           transition: all 0.2s;
           cursor: pointer;
 
@@ -570,6 +591,7 @@ nav {
       #noEmergency {
         font-size: 14px;
         color: #99a1af;
+        margin: 20px 0;
       }
 
       .header {
@@ -594,7 +616,7 @@ nav {
       #emergencyList {
         .contact {
           border: 1px solid #f3f4f6;
-          background-color: transparent;
+          background-color: #f9fafb;
           transition: all 0.2s;
           cursor: pointer;
 
