@@ -6,7 +6,6 @@ body {
 .bg-linear-to-br-vi600-in600 {
   background: linear-gradient(to bottom right, #7a27fd, #5737f8);
 }
-
 .bg-linear-to-br-bl500-bl600 {
   background: linear-gradient(to bottom right, #287bff, #1862fd);
 }
@@ -23,11 +22,145 @@ body {
   background: linear-gradient(to right, #7a27fd, #5737f8);
 }
 
+.bg-linear-to-br-vi500-pu600 {
+  background: linear-gradient(
+    to bottom right,
+    oklch(60.6% 0.25 292.717),
+    oklch(55.8% 0.288 302.321)
+  );
+}
+
+.bg-linear-to-br-em500-te600 {
+  background: linear-gradient(
+    to bottom right,
+    oklch(69.6% 0.17 162.48),
+    oklch(60% 0.118 184.704)
+  );
+}
+
+.bg-linear-to-br-ro500-pi600 {
+  background: linear-gradient(
+    to bottom right,
+    oklch(64.5% 0.246 16.439),
+    oklch(59.2% 0.249 0.584)
+  );
+}
+
+.bg-linear-to-br-am500-or600 {
+  background: linear-gradient(
+    to bottom right,
+    oklch(76.9% 0.188 70.08),
+    oklch(64.6% 0.222 41.116)
+  );
+}
+
+.bg-linear-to-br-cy500-bl600 {
+  background: linear-gradient(
+    to bottom right,
+    oklch(71.5% 0.143 215.221),
+    oklch(54.6% 0.245 262.881)
+  );
+}
+
+.bg-linear-to-br-in500-vi600 {
+  background: linear-gradient(
+    to bottom right,
+    oklch(58.5% 0.233 277.117),
+    oklch(54.1% 0.281 293.009)
+  );
+}
+
+.bg-linear-to-br-fu500-pi600 {
+  background: linear-gradient(
+    to bottom right,
+    oklch(66.7% 0.295 322.15),
+    oklch(59.2% 0.249 0.584)
+  );
+}
+
+.fs-msg{
+  font-size: 12px;
+}
+
+#inputsModal {
+  backdrop-filter: blur(10px);
+
+  .modal-header {
+    .btn-close {
+      font-size: 12px;
+    }
+  }
+  .modal-body {
+    .header {
+      .image {
+        width: 96px;
+        height: 96px;
+        overflow: hidden;
+      }
+      .my-image-label {
+        cursor: pointer;
+        font-size: 14px;
+      }
+    }
+
+    .inputs {
+      label {
+        font-size: 14px;
+      }
+      #fullNameInput,
+      #phoneInput,
+      #emailInput,
+      #addressInput,
+      select {
+        font-size: 14px;
+        height: 45px;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: rgb(136, 138, 137);
+      }
+      textarea {
+        font-size: 14px;
+        height: 100px;
+        resize: none;
+      }
+      #isFavouriteInput,
+      #isEmergencyInput {
+        width: 20px;
+        height: 20px;
+        border: 1px solid rgba(0, 0, 00, 0.5);
+      }
+    }
+  }
+  .modal-footer {
+    .buttons {
+      button {
+        font-size: 14px;
+        transition: all 0.2s;
+        height: 45px;
+        border: 0;
+      }
+      #cancelButton {
+        color: #364153;
+        background-color: #f3f4f6;
+      }
+      #cancelButton:hover {
+        background-color: #e5e7eb;
+      }
+      #saveButton {
+        background: linear-gradient(to right, #7f22fe, #5039f6);
+      }
+      #saveButton:hover {
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.175) !important;
+      }
+    }
+  }
+}
+
 header {
   background-color: rgba(255, 255, 255, 0.7) !important;
   -webkit-backdrop-filter: blur(24px) !important;
   backdrop-filter: blur(24px) !important;
-
 }
 
 nav {
@@ -113,7 +246,6 @@ nav {
   }
 }
 
-
 #contacts {
   .contacts {
     .header {
@@ -134,7 +266,7 @@ nav {
         transform: translateY(-50%);
       }
 
-      #searchbar {
+      #searchbarInput {
         padding-left: 44px;
         color: #364153;
         font-weight: 400;
@@ -143,11 +275,11 @@ nav {
         transition: all 0.4s;
       }
 
-      #searchbar::placeholder {
+      #searchbarInput::placeholder {
         color: #99a1af;
       }
 
-      #searchbar:focus {
+      #searchbarInput:focus {
         border: 1px solid #8e51ff !important;
         box-shadow: 0 0 0 4px rgba(142, 81, 255, 0.3) !important;
       }
@@ -159,9 +291,13 @@ nav {
 
       .card-content {
         .header {
-          #contactImagePlaceholder {
+          .contactImagePlaceholder {
             width: 56px;
             height: 56px;
+
+            .contactImageLetter {
+              font-size: 18;
+            }
 
             .favouritedContact {
               width: 20px;
@@ -185,7 +321,7 @@ nav {
           }
 
           .contact-info {
-            #contactName {
+            .contactName {
               font-size: 16px;
             }
 
@@ -198,14 +334,14 @@ nav {
                 font-size: 10px;
               }
 
-              #contactNumber {
+              .contactNumber {
                 font-size: 14px;
               }
             }
           }
         }
 
-        #mailDiv {
+        .mail {
           .icon {
             background-color: #ede9fe;
             color: #7f22fe;
@@ -214,12 +350,12 @@ nav {
             height: 28px;
           }
 
-          #contactEmail {
+          .contactEmail {
             font-size: 14px;
           }
         }
 
-        #addressDiv {
+        .addressDiv {
           .icon {
             background-color: #d0fae5;
             color: #009966;
@@ -228,13 +364,13 @@ nav {
             height: 28px;
           }
 
-          #contactEmail {
+          .contactEmail {
             font-size: 14px;
           }
         }
 
         .contact-tags {
-          #groupTag {
+          .groupTag {
             font-size: 11px;
           }
 
@@ -243,7 +379,7 @@ nav {
             color: #8200db;
           }
 
-          #emergencyTag {
+          .emergencyTag {
             font-size: 11px;
             background-color: #fff1f2;
             color: #ec003f;
@@ -256,7 +392,7 @@ nav {
         border-top: 1px solid rgba(122, 122, 122, 0.2);
 
         .actions {
-          #callContact {
+          .callContact {
             background-color: #ecfdf5;
             color: #009966;
             width: 36px;
@@ -265,11 +401,11 @@ nav {
             transition: all 0.2s;
           }
 
-          #callContact:hover {
+          .callContact:hover {
             background-color: #d0fae5;
           }
 
-          #mailContact {
+          .mailContact {
             background-color: #f5f3ff;
             color: #7f22fe;
             width: 36px;
@@ -278,7 +414,7 @@ nav {
             transition: all 0.2s;
           }
 
-          #mailContact:hover {
+          .mailContact:hover {
             background-color: #ede9fe;
           }
         }
@@ -294,42 +430,42 @@ nav {
             transition: all 0.2s;
           }
 
-          #favouriteButton.isfavourite {
+          .favouriteButton.isfavourite {
             background-color: #fffbeb;
             color: #ffb900;
           }
 
-          #emergencyButton.isemergency {
+          .emergencyButton.isemergency {
             background-color: #fff1f2;
             color: #ff2056;
           }
 
-          #favouriteButton.notfavourite:hover {
+          .favouriteButton.notfavourite:hover {
             background-color: #f3f4f6;
             color: #ffb900;
           }
 
-          #favouriteButton.isfavourite:hover {
+          .favouriteButton.isfavourite:hover {
             background-color: #fef3c6;
             color: #ffb900;
           }
 
-          #emergencyButton.notemergency:hover {
+          .emergencyButton.notemergency:hover {
             background-color: #f3f4f6;
             color: #ff2056;
           }
 
-          #emergencyButton.isemergency:hover {
+          .emergencyButton.isemergency:hover {
             background-color: #ffe4e6;
             color: #ff2056;
           }
 
-          #editButton:hover {
+          .editButton:hover {
             background-color: #eef2ff;
             color: #4f39f6;
           }
 
-          #deleteButton:hover {
+          .deleteButton:hover {
             background-color: #fff1f2;
             color: #ec003f;
           }
@@ -361,7 +497,6 @@ nav {
       }
     }
   }
-
 
   .lists {
     .favourite-card {
@@ -398,17 +533,17 @@ nav {
           transition: all 0.2s;
           cursor: pointer;
 
-          #contactImagePlaceholder {
+          .contactImagePlaceholder {
             width: 40px;
             height: 40px;
           }
 
           .contact-info {
-            #contactName {
+            .contactName {
               font-size: 11px;
             }
 
-            #contactNumber {
+            .contactNumber {
               font-size: 10px;
             }
           }
@@ -428,8 +563,6 @@ nav {
         }
       }
     }
-
-
 
     .emergency-card {
       background-color: #ffffff;
@@ -465,17 +598,17 @@ nav {
           transition: all 0.2s;
           cursor: pointer;
 
-          #contactImagePlaceholder {
+          .contactImagePlaceholder {
             width: 40px;
             height: 40px;
           }
 
           .contact-info {
-            #contactName {
+            .contactName {
               font-size: 11px;
             }
 
-            #contactNumber {
+            .contactNumber {
               font-size: 10px;
             }
           }
@@ -498,10 +631,9 @@ nav {
   }
 }
 
-
-
 /*sm*/
-@media screen and (min-width: 576px) {}
+@media screen and (min-width: 576px) {
+}
 
 /*md*/
 @media screen and (min-width: 768px) {
@@ -547,12 +679,10 @@ nav {
       }
     }
   }
-
 }
 
 /*lg*/
 @media screen and (min-width: 992px) {
-
   nav {
     .logo {
       width: 44px;
@@ -591,7 +721,6 @@ nav {
 
 /*xl*/
 @media screen and (min-width: 1200px) {
-
   nav {
     .rside {
       .profile {
@@ -601,14 +730,10 @@ nav {
     }
   }
 
-
-
   #contacts {
     .lists {
       .favourite-card {
-
         .header {
-
           .icon {
             width: 36px;
             height: 36px;
@@ -625,14 +750,12 @@ nav {
 
         #favouriteList {
           .contact {
-
-
             .contact-info {
-              #contactName {
+              .contactName {
                 font-size: 14px;
               }
 
-              #contactNumber {
+              .contactNumber {
                 font-size: 12px;
               }
             }
@@ -646,12 +769,8 @@ nav {
         }
       }
 
-
-
       .emergency-card {
-
         .header {
-
           .icon {
             width: 36px;
             height: 36px;
@@ -668,13 +787,12 @@ nav {
 
         #emergencyList {
           .contact {
-
             .contact-info {
-              #contactName {
+              .contactName {
                 font-size: 14px;
               }
 
-              #contactNumber {
+              .contactNumber {
                 font-size: 12px;
               }
             }
